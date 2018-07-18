@@ -12,6 +12,7 @@
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
+@import GoogleMaps; //add this line if you want to use Google Maps
 
 @implementation AppDelegate
 
@@ -19,6 +20,8 @@
 {
   NSURL *jsCodeLocation;
 
+  [GMSServices provideAPIKey:@"AIzaSyCyuTtkm8afAMJbTSUEQjMSWHh-4SIx0uI"]; // add this line using the api key obtained from Google Console
+  
   [AppCenterReactNativeCrashes registerWithAutomaticProcessing];  // Initialize AppCenter crashes
 
   [AppCenterReactNativeAnalytics registerWithInitiallyEnabled:true];  // Initialize AppCenter analytics

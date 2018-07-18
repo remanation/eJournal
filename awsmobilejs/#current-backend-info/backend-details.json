@@ -1,0 +1,73 @@
+{
+	"name": "journal",
+	"projectId": "7842fc2c-e558-4baf-b76d-1d950a325333",
+	"region": "us-east-1",
+	"state": "NORMAL",
+	"createdDate": "2018-07-17T10:16:08.702Z",
+	"lastUpdatedDate": "2018-07-17T10:16:15.059Z",
+	"consoleUrl": "https://console.aws.amazon.com/mobilehub/home#/7842fc2c-e558-4baf-b76d-1d950a325333/build",
+	"resources": [
+		{
+			"type": "AWS::Pinpoint::AnalyticsApplication",
+			"name": "journal_MobileHub",
+			"arn": "1e97c4e87b764e82b7979060e0f024e7",
+			"feature": "analytics",
+			"attributes": {
+				"lastUpdateRequestID": "342c6cb2-0e2d-49c3-b185-bdee02919fd3"
+			}
+		},
+		{
+			"type": "AWS::IAM::Policy",
+			"name": "journal_mobileanalytics_MOBILEHUB_1045334791",
+			"arn": null,
+			"feature": "analytics",
+			"attributes": {
+				"authType": "unauthenticated",
+				"lastUpdateRequestID": "342c6cb2-0e2d-49c3-b185-bdee02919fd3",
+				"role": "journal_unauth_MOBILEHUB_1045334791"
+			}
+		},
+		{
+			"type": "AWS::Cognito::IdentityPool",
+			"name": "journal_MOBILEHUB_1045334791",
+			"arn": "us-east-1:86a85472-f201-4575-8f82-48d0a96b6f28",
+			"feature": "user-signin",
+			"attributes": {
+				"lastUpdateRequestID": "342c6cb2-0e2d-49c3-b185-bdee02919fd3",
+				"poolid": "us-east-1:86a85472-f201-4575-8f82-48d0a96b6f28",
+				"roleARNs": "arn:aws:iam::352361561808:role/journal_unauth_MOBILEHUB_1045334791"
+			}
+		},
+		{
+			"type": "AWS::IAM::Role",
+			"name": "journal_unauth_MOBILEHUB_1045334791",
+			"arn": "arn:aws:iam::352361561808:role/journal_unauth_MOBILEHUB_1045334791",
+			"feature": "user-signin",
+			"attributes": {
+				"authType": "unauthenticated",
+				"lastUpdateRequestID": "342c6cb2-0e2d-49c3-b185-bdee02919fd3"
+			}
+		},
+		{
+			"type": "AWS::S3::Bucket",
+			"name": "journal-deployments-mobilehub-1045334791",
+			"arn": null,
+			"feature": "common",
+			"attributes": {
+				"region": "us-east-1",
+				"s3-bucket-console-url": "https://s3.console.aws.amazon.com/s3/buckets/journal-deployments-mobilehub-1045334791"
+			}
+		},
+		{
+			"type": "AWS::CloudFormation::Stack",
+			"name": "Development",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"primary": "true",
+				"region": "us-east-1",
+				"stateSummary": "NOT_YET_DEPLOYED"
+			}
+		}
+	]
+}

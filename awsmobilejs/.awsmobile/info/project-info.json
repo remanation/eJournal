@@ -1,0 +1,19 @@
+{
+	"ProjectName": "eJournal",
+	"ProjectPath": "/Users/rema/Projects/eJournal",
+	"InitializationTime": "",
+	"LastConfigurationTime": "2018-07-18-23-07-10",
+	"LastNPMInstallTime": "",
+	"FrontendLastBuildTime": "",
+	"LastPublishTime": "",
+	"BackendLastSyncTime": "2018-07-18-23-07-59",
+	"BackendLastBuildTime": "",
+	"BackendLastPushTime": "",
+	"BackendProjectID": "7842fc2c-e558-4baf-b76d-1d950a325333",
+	"BackendProjectName": "journal",
+	"BackendProjectConsoleUrl": "https://console.aws.amazon.com/mobilehub/home#/7842fc2c-e558-4baf-b76d-1d950a325333/build",
+	"BackendProjectCreationTime": "2018-07-17T10:16:08.702Z",
+	"BackendProjectLastUpdatedTime": "2018-07-17T10:16:15.059Z",
+	"Framework": "react-native",
+	"BackendLastSyncToDevTime": "2018-07-18-23-07-59"
+}
