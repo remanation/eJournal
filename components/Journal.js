@@ -17,7 +17,16 @@ const tabNavigator = createBottomTabNavigator(
     initialRouteName: "timeline",
     tabBarOptions: {
       showLabel: false,
-      activeTintColor: "#2c9cdb"
+      activeTintColor: "#2c9cdb",
+      style: {
+        elevation: 4,
+        shadowOffset: { width: 0, height: 0 },
+        shadowRadius: 2,
+        shadowColor: "black",
+        shadowOpacity: 0.2,
+        borderTopWidth: 0.5,
+        borderTopColor: "rgba(0, 0, 0, 0.3)"
+      }
     }
   }
 );
