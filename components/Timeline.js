@@ -96,6 +96,118 @@ const sections = [
         image: "",
         location: "",
         weather: ""
+      },
+      {
+        date: "25.09.2018",
+        time: "16:15",
+        title: "Play Badminton",
+        description:
+          "Badminton is a racquet sport played using racquets to hit a shuttlecock across a net.",
+        image: "",
+        location: "",
+        weather: ""
+      },
+      {
+        date: "25.09.2018",
+        time: "17:00",
+        title: "Go to Fitness center",
+        description: "Look out for the Best Gym & Fitness Centers around me :)",
+        image: "",
+        location: "",
+        weather: ""
+      },
+      {
+        date: "25.09.2018",
+        time: "17:00",
+        title: "Go to Fitness center",
+        description: "Look out for the Best Gym & Fitness Centers around me :)",
+        image: "",
+        location: "",
+        weather: ""
+      },
+      {
+        date: "25.09.2018",
+        time: "16:15",
+        title: "Play Badminton",
+        description:
+          "Badminton is a racquet sport played using racquets to hit a shuttlecock across a net.",
+        image: "",
+        location: "",
+        weather: ""
+      },
+      {
+        date: "25.09.2018",
+        time: "17:00",
+        title: "Go to Fitness center",
+        description: "Look out for the Best Gym & Fitness Centers around me :)",
+        image: "",
+        location: "",
+        weather: ""
+      },
+      {
+        date: "25.09.2018",
+        time: "17:00",
+        title: "Go to Fitness center",
+        description: "Look out for the Best Gym & Fitness Centers around me :)",
+        image: "",
+        location: "",
+        weather: ""
+      },
+      {
+        date: "25.09.2018",
+        time: "16:15",
+        title: "Play Badminton",
+        description:
+          "Badminton is a racquet sport played using racquets to hit a shuttlecock across a net.",
+        image: "",
+        location: "",
+        weather: ""
+      },
+      {
+        date: "25.09.2018",
+        time: "17:00",
+        title: "Go to Fitness center",
+        description: "Look out for the Best Gym & Fitness Centers around me :)",
+        image: "",
+        location: "",
+        weather: ""
+      },
+      {
+        date: "25.09.2018",
+        time: "17:00",
+        title: "Go to Fitness center",
+        description: "Look out for the Best Gym & Fitness Centers around me :)",
+        image: "",
+        location: "",
+        weather: ""
+      },
+      {
+        date: "25.09.2018",
+        time: "16:15",
+        title: "Play Badminton",
+        description:
+          "Badminton is a racquet sport played using racquets to hit a shuttlecock across a net.",
+        image: "",
+        location: "",
+        weather: ""
+      },
+      {
+        date: "25.09.2018",
+        time: "17:00",
+        title: "Go to Fitness center",
+        description: "Look out for the Best Gym & Fitness Centers around me :)",
+        image: "",
+        location: "",
+        weather: ""
+      },
+      {
+        date: "25.09.2018",
+        time: "17:00",
+        title: "Go to Fitness center",
+        description: "Look out for the Best Gym & Fitness Centers around me :)",
+        image: "",
+        location: "",
+        weather: ""
       }
     ]
   }
@@ -117,16 +229,17 @@ export default class Timeline extends Component {
     console.log(index, section);
     const shouldRenderLine = index != section.data.length - 1;
 
+    const itemLineStyle = index === 0 ? { marginTop: 4 } : {};
+
     return (
       <View style={styles.itemContainer}>
-        <View style={{ width: 50 }}>
+        <View style={{}}>
           <Badge
             containerStyle={{
               backgroundColor: "#fd9797",
+              zIndex: 10,
               width: 45,
-              padding: 5,
-              position: "absolute",
-              top: -4
+              padding: 5
             }}
           >
             <Text style={{ color: "white", fontSize: 12 }}>{time}</Text>
@@ -134,7 +247,13 @@ export default class Timeline extends Component {
         </View>
         <View style={styles.itemLineContainer}>
           <View style={styles.itemCircle} />
-          {shouldRenderLine && <View style={styles.itemLine} />}
+          {shouldRenderLine ? (
+            <View style={[itemLineStyle, styles.itemLine]} />
+          ) : (
+            <View
+              style={{ height: 20, width: 2, backgroundColor: "#2c9cdb" }}
+            />
+          )}
         </View>
         <View style={styles.itemDetailContainer}>
           <Text style={styles.itemTitle}>{title}</Text>
@@ -148,7 +267,9 @@ export default class Timeline extends Component {
   renderSectionHeader = ({ section: { title } }) => {
     return (
       <View style={styles.sectionHeaderContainer}>
-        <Text style={{ fontWeight: "bold" }}>{title}</Text>
+        <Text style={{ fontWeight: "bold", fontSize: 12, opacity: 0.6 }}>
+          {title}
+        </Text>
       </View>
     );
   };
@@ -158,9 +279,79 @@ export default class Timeline extends Component {
   render() {
     return (
       <React.Fragment>
+        <SectionList
+          stickySectionHeadersEnabled={false}
+          contentContainerStyle={styles.list}
+          renderItem={this.renderItem}
+          renderSectionHeader={this.renderSectionHeader}
+          sections={sections}
+          keyExtractor={(item, index) => item + index}
+        />
+        <ActionButton buttonColor="#2c9cdb" fixNativeFeedbackRadius={true}>
+          <ActionButton.Item
+            buttonColor="#2c9cdb"
+            size={40}
+            title="Add image"
+            nativeFeedbackRippleColor="rgba(255,255,255,0)"
+            onPress={() => {}}
+          >
+            <Icon
+              name="image"
+              type="feather"
+              size={20}
+              color="white"
+              style={styles.actionButtonIcon}
+            />
+          </ActionButton.Item>
+          <ActionButton.Item
+            nativeFeedbackRippleColor="rgba(255,255,255,0)"
+            buttonColor="#2c9cdb"
+            size={40}
+            title="Add location"
+            onPress={() => {}}
+          >
+            <Icon
+              name="map-pin"
+              type="feather"
+              size={20}
+              color="white"
+              style={styles.actionButtonIcon}
+            />
+          </ActionButton.Item>
+          <ActionButton.Item
+            nativeFeedbackRippleColor="rgba(255,255,255,0)"
+            buttonColor="#2c9cdb"
+            size={40}
+            title="Add activity"
+            onPress={() => {}}
+          >
+            <Icon
+              name="activity"
+              type="feather"
+              size={20}
+              color="white"
+              style={styles.actionButtonIcon}
+            />
+          </ActionButton.Item>
+          <ActionButton.Item
+            nativeFeedbackRippleColor="rgba(255,255,255,0)"
+            buttonColor="#2c9cdb"
+            size={40}
+            title="Add Task"
+            onPress={() => console.log("notes tapped!")}
+          >
+            <Icon
+              name="create"
+              color="white"
+              size={20}
+              style={styles.actionButtonIcon}
+            />
+          </ActionButton.Item>
+        </ActionButton>
         <Header
           statusBarProps={{ barStyle: "light-content" }}
           outerContainerStyles={{
+            elevation: 2,
             shadowOffset: { width: 0, height: 0 },
             shadowRadius: 2,
             shadowColor: "black",
@@ -199,71 +390,6 @@ export default class Timeline extends Component {
           centerComponent={{ text: "MY TITLE", style: { color: "#2c9cdb" } }}
           rightComponent={{ icon: "home", color: "#2c9cdb" }}
         />
-        <SectionList
-          stickySectionHeadersEnabled={false}
-          contentContainerStyle={styles.list}
-          renderItem={this.renderItem}
-          renderSectionHeader={this.renderSectionHeader}
-          sections={sections}
-          keyExtractor={(item, index) => item + index}
-        />
-        <ActionButton buttonColor="#2c9cdb">
-          <ActionButton.Item
-            buttonColor="#2c9cdb"
-            size={40}
-            title="Notifications"
-            onPress={() => {}}
-          >
-            <Icon
-              name="image"
-              type="feather"
-              size={20}
-              color="white"
-              style={styles.actionButtonIcon}
-            />
-          </ActionButton.Item>
-          <ActionButton.Item
-            buttonColor="#2c9cdb"
-            size={40}
-            title="Notifications"
-            onPress={() => {}}
-          >
-            <Icon
-              name="map-pin"
-              type="feather"
-              size={20}
-              color="white"
-              style={styles.actionButtonIcon}
-            />
-          </ActionButton.Item>
-          <ActionButton.Item
-            buttonColor="#2c9cdb"
-            size={40}
-            title="All Tasks"
-            onPress={() => {}}
-          >
-            <Icon
-              name="activity"
-              type="feather"
-              size={20}
-              color="white"
-              style={styles.actionButtonIcon}
-            />
-          </ActionButton.Item>
-          <ActionButton.Item
-            buttonColor="#2c9cdb"
-            size={40}
-            title="New Task"
-            onPress={() => console.log("notes tapped!")}
-          >
-            <Icon
-              name="create"
-              color="white"
-              size={20}
-              style={styles.actionButtonIcon}
-            />
-          </ActionButton.Item>
-        </ActionButton>{" "}
       </React.Fragment>
     );
   }
@@ -296,6 +422,7 @@ const styles = StyleSheet.create({
   },
   itemCircle: {
     position: "absolute",
+    top: 4,
     width: 16,
     height: 16,
     borderRadius: 10,
@@ -317,7 +444,7 @@ const styles = StyleSheet.create({
     opacity: 0.6
   },
   list: {
-    marginTop: 70,
+    paddingTop: 70,
     flexGrow: 1
   },
   actionButtonIcon: {

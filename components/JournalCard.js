@@ -1,16 +1,19 @@
-import React, { Component } from 'react';
-import { View, StyleSheet, Text, ImageBackground, Image, TouchableOpacity } from 'react-native';
+import React, { Component } from "react";
+import {
+  View,
+  StyleSheet,
+  Text,
+  ImageBackground,
+  Image,
+  TouchableOpacity
+} from "react-native";
 
 export default class JournalCard extends Component {
   render() {
     const { image, title, description } = this.props;
 
-    return(
-      <TouchableOpacity
-        style={styles.container}
-        onPress={this.props.onPress}
-        testID="Accounts_MyCardTool"
-      >
+    return (
+      <TouchableOpacity style={styles.container} onPress={this.props.onPress}>
         <ImageBackground
           source={image}
           style={styles.background}
@@ -31,26 +34,25 @@ const styles = StyleSheet.create({
     height: 150,
     borderRadius: 10,
     marginHorizontal: 10,
-    marginTop: 10,    
+    marginTop: 10,
     flexGrow: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center"
   },
   contentContainer: {
-    flex:1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
   },
   background: {
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     flex: 1,
-    width: '100%',
+    width: "100%"
   },
   title: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: "bold"
   },
-  text: {
-  }
+  text: {}
 });

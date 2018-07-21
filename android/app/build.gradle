@@ -100,11 +100,36 @@ android {
     defaultConfig {
         applicationId "com.ejournal"
         minSdkVersion 16
-        targetSdkVersion 22
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
         ndk {
             abiFilters "armeabi-v7a", "x86"
+        }
+    }
+    signingConfigs {
+        release {
+            if (project.hasProperty('EJOURNAL_TEST_STORE_FILE')) {
+                storeFile file(EJOURNAL_TEST_STORE_FILE)
+                storePassword EJOURNAL_TEST_STORE_PASSWORD
+                keyAlias EJOURNAL_TEST_KEY_ALIAS
+                keyPassword EJOURNAL_TEST_KEY_PASSWORD
+            }
+        }
+        debug {
+            if (project.hasProperty('EJOURNAL_TEST_STORE_FILE')) {
+                storeFile file(EJOURNAL_TEST_STORE_FILE)
+                storePassword EJOURNAL_TEST_STORE_PASSWORD
+                keyAlias EJOURNAL_TEST_KEY_ALIAS
+                keyPassword EJOURNAL_TEST_KEY_PASSWORD
+            }
+        }
+    }
+    flavorDimensions 'tier'
+    productFlavors {
+        Prod {
+            dimension 'tier'
+            signingConfig signingConfigs.release
         }
     }
     splits {
@@ -120,6 +145,10 @@ android {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
+        debug {
+            minifyEnabled enableProguardInReleaseBuilds
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        }    
     }
     // applicationVariants are e.g. debug, release
     applicationVariants.all { variant ->
@@ -143,7 +172,7 @@ dependencies {
     compile project(':appcenter-crashes')
     compile project(':appcenter-analytics')
     compile fileTree(dir: "libs", include: ["*.jar"])
-    compile "com.android.support:appcompat-v7:23.0.1"
+    compile "com.android.support:appcompat-v7:24.0.0"
     compile "com.facebook.react:react-native:+"  // From node_modules
 }
 
