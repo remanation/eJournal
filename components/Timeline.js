@@ -28,7 +28,7 @@ const sections = [
         time: "16:15",
         title: "Play Badminton",
         description:
-          "Badminton is a racquet sport played using racquets to hit a shuttlecock across a net.",
+          "Badminton is a racquet sport played using racquets to hit a shuttlecock across a net.  sdfs lksdjf sldkjf ksldfj sldkfj sdlfkj sdlkfj sldkfj sdlkfj sdlkfj sldkfj sdlkfj sldkfj lskjdf lsjdkf lskjdf lskdjf lskdjf lskjf lskdjf",
         image: "",
         location: "",
         weather: ""
@@ -331,6 +331,9 @@ export default class Timeline extends Component {
     const shouldRenderLine = index != section.data.length - 1;
 
     const itemLineStyle = index === 0 ? { marginTop: 4 } : {};
+    const itemSeparatorLineStyle = shouldRenderLine
+      ? { borderBottomWidth: StyleSheet.hairlineWidth }
+      : {};
 
     return (
       <View style={styles.itemContainer}>
@@ -356,9 +359,11 @@ export default class Timeline extends Component {
             />
           )}
         </View>
-        <View style={styles.itemDetailContainer}>
+        <View style={[itemSeparatorLineStyle, styles.itemDetailContainer]}>
           <Text style={styles.itemTitle}>{title}</Text>
-          <Text style={styles.itemDescription}>{description}</Text>
+          <Text numberOfLines={4} style={styles.itemDescription}>
+            {description}
+          </Text>
         </View>
         <Divider />
       </View>
@@ -409,7 +414,7 @@ export default class Timeline extends Component {
             { useNativeDriver: true }
           )}
         />
-        <ActionButton buttonColor="#2c9cdb" fixNativeFeedbackRadius={false}>
+        <ActionButton buttonColor="#2c9cdb" fixNativeFeedbackRadius={true}>
           {actionMenu.map(({ id, title, icon, iconType }) => {
             return (
               <ActionButton.Item
@@ -469,7 +474,6 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
     paddingBottom: 10,
-    borderBottomWidth: 1,
     borderBottomColor: "#aaa",
     marginBottom: 10,
     paddingRight: 10
